@@ -1,100 +1,98 @@
 import React from "react";
-// import { Navbar } from "./nav-bar/NavBar";
 import { Navbar } from "./nav-bar/Navbar";
 import { NavItems } from "./nav-bar/NavItems";
 import { SignUp } from "./Sign-Up/SignUp";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BreakingNews } from "./Breaking News/BreakingNews";
-import { Box, Divider, Typography } from "@mui/material";
-import { NewsList } from "./News List/NewsList";
-import newsData from "./News api/newsData.json";
-import breakingNewsData from "./News api/breakingNewsData.json";
-import { Stories } from "./stories/Stories";
+import { Error } from "./error Page/Error";
+import { NewsList } from "../src/News List/NewsList";
+import { Stories } from "../src/stories/Stories";
+import { Video } from "./videos/Video";
+import Footer from "./footer/Footer";
+import { Paper } from "./e-paper/Paper";
+import { Cricket } from "./cricket/Cricket";
 
 const App = () => {
-  // Get the current route location
-  const location = useLocation();
-
-  const isSignUpPage = location.pathname === "/sign";
-  const storiesLocation = location.pathname === "/stories";
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <BreakingNews />
+          <NewsList />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: "/sign",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <SignUp />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: "/stories",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Stories />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: "/video",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Video />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: "/paper",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Paper />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: "/cricket",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Cricket />
+        </>
+      )
+    },
+    {
+      path: "*",
+      element: (
+        <>
+          <Error />
+        </>
+      )
+    }
+  ]);
 
   return (
     <>
-      {/* stories component */}
-
-      {storiesLocation && (
-        <div>
-          <Stories />
-        </div>
-      )}
-
-      {/* Conditionally render Navbar and NavItems */}
-
-      {!isSignUpPage && (
-        <div>
-          <Navbar />
-          <NavItems />
-          {/* <DrawerComponent /> */}
-          <div>
-            <Typography
-              marginLeft={"10%"}
-              marginTop={"2%"}
-              variant="h4"
-              color="info"
-            >
-              Breaking News
-              <Divider sx={{ border: "3px solid red", width: "17%" }} />
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                margin: "auto",
-                justifyContent: "center"
-              }}
-            >
-              {breakingNewsData.map((currBreak, index) => {
-                return <BreakingNews currBreak={currBreak} index={index} />;
-              })}
-            </Box>
-          </div>
-          {/* end */}
-          {/* news List */}
-          <div>
-            <Typography
-              variant="h4"
-              color="primary"
-              sx={{
-                marginTop: "20px",
-                marginLeft: "10%",
-                marginBottom: "20px"
-              }}
-            >
-              News Lists
-              <Divider sx={{ border: "3px solid red", width: "12%" }} />
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                gap: "20px",
-                justifyContent: "center"
-              }}
-            >
-              {newsData.map((currNews, index) => {
-                return <NewsList currNews={currNews} index={index} />;
-              })}
-            </Box>
-          </div>
-          {/* end */}
-        </div>
-      )}
-
-      <Routes>
-        <Route path="/sign" element={<SignUp />} />
-        {/* <Route path="/stories" element={<Stories />} /> */}
-      </Routes>
+      <RouterProvider router={router} />
     </>
   );
 };

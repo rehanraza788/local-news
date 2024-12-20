@@ -23,14 +23,13 @@ export const SignUp = () => {
   };
 
   const handleClick = () => {
-    alert("login successfully");
+    alert("Login successfully");
   };
 
   return (
     <Box
       sx={{
         width: { xs: "90%", md: "65%" },
-        height: "10%",
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
@@ -44,7 +43,7 @@ export const SignUp = () => {
       <Box
         sx={{
           width: { xs: "100%", md: "45%" },
-          display: "flex",
+          display: { xs: "none", md: "flex" }, // Hide image on small screens
           alignItems: "center",
           justifyContent: "center",
           mb: { xs: 3, md: 0 }
@@ -119,7 +118,7 @@ export const SignUp = () => {
           />
         </FormControl>
 
-        {/* Mobile Number Field with Phone Icon on the Right */}
+        {/* Mobile Number Field */}
         {!hasAccount && (
           <FormControl variant="outlined" fullWidth sx={{ mb: 2 }}>
             <InputLabel>Mobile Number</InputLabel>
@@ -135,7 +134,7 @@ export const SignUp = () => {
         )}
 
         <FormControl variant="outlined" fullWidth sx={{ mb: 2 }} required>
-          <InputLabel required>Password</InputLabel>
+          <InputLabel>Password</InputLabel>
           <OutlinedInput
             type={showPassword ? "text" : "password"}
             endAdornment={

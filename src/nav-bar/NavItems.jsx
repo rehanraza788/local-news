@@ -19,13 +19,13 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const NavItems = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
-  const [cityList, setCityList] = useState(CityList);
   const [filterCity, setFilterCity] = useState("");
+  const [filteredCityList, setFilteredCityList] = useState(CityList);
 
   // Function to handle drawer toggle
   const toggleDrawer = (open) => (event) => {
@@ -48,15 +48,15 @@ export const NavItems = () => {
   };
 
   // Filtered search city
-
   const handleChangeCityList = (e) => {
     const filCity = e.target.value.toLowerCase();
     setFilterCity(filCity);
 
-    const filteredCityList = cityList.filter((curCity) =>
-      curCity.toLowerCase().includes(filterCity)
+    // Perform the filter on the original CityList
+    const newFilteredCityList = CityList.filter((curCity) =>
+      curCity.toLowerCase().includes(filCity)
     );
-    setCityList(filteredCityList);
+    setFilteredCityList(newFilteredCityList);
   };
 
   // handle Stories
@@ -64,8 +64,19 @@ export const NavItems = () => {
   const navigation = useNavigate();
 
   const handleStories = () => {
-    // alert("Please select");
     navigation("/stories");
+  };
+
+  // handle videos
+
+  const handleVideo = () => {
+    navigation("/video");
+  };
+
+  // handle e-paper
+
+  const handlePaper = () => {
+    navigation("/paper");
   };
 
   // Icon data for navigation items
@@ -74,13 +85,16 @@ export const NavItems = () => {
       icon: <LocationOnIcon fontSize="large" onClick={toggleDrawer(true)} />,
       label: "Location"
     },
-    { icon: <NewspaperIcon fontSize="large" />, label: "E-paper" },
+    {
+      icon: <NewspaperIcon fontSize="large" onClick={handlePaper} />,
+      label: "E-paper"
+    },
     {
       icon: <AutoStoriesIcon fontSize="large" onClick={handleStories} />,
       label: "Stories"
     },
     {
-      icon: <YouTubeIcon fontSize="large" />,
+      icon: <YouTubeIcon fontSize="large" onClick={handleVideo} />,
       label: "YouTube"
     },
     {
@@ -146,10 +160,34 @@ export const NavItems = () => {
                     backgroundColor: "#d32f2f",
                     color: "#ffffff",
                     transform: "scale(1.1)"
-                  }
+                  },
+                  textDecoration: "none"
                 }}
               >
-                {heading}
+                <NavLink
+                  to={
+                    heading === "Fresh"
+                      ? "/fresh"
+                      : heading === "Election"
+                      ? "/election"
+                      : heading === "Breaking"
+                      ? "/"
+                      : heading === "World"
+                      ? "/world"
+                      : heading === "Entertainment"
+                      ? "/entertainment"
+                      : heading === "Cricket"
+                      ? "/cricket"
+                      : heading === "Life Style"
+                      ? "/lifestyle"
+                      : heading === "More ▶️"
+                      ? "/more"
+                      : "/"
+                  }
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {heading}
+                </NavLink>
               </Typography>
             ))}
           </Box>
@@ -201,12 +239,12 @@ export const NavItems = () => {
       {/* Drawer Component */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box
-          sx={{ width: 350, padding: 2, marginLeft: "20px" }}
+          sx={{ width: 280, padding: 2, marginLeft: "5px" }}
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <Typography variant="h6" sx={{ marginBottom: 2 }}>
+          <Typography variant="h6" sx={{ marginBottom: 2, fontWeight: "bold" }}>
             Location list
             <Divider />
           </Typography>
@@ -246,8 +284,8 @@ export const NavItems = () => {
             City Lists
           </Typography>
           <List>
-            {cityList.length > 0 ? (
-              cityList.map((city, index) => {
+            {filteredCityList.length > 0 ? (
+              filteredCityList.map((city, index) => {
                 return (
                   <ListItemText key={index}>
                     <Button> {city} </Button>

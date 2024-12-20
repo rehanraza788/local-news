@@ -2,9 +2,15 @@ import { Button, Grid2, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigation = useNavigate();
+
+  const handleHomeButton = () => {
+    navigation("/");
+  };
+
   return (
     <Grid2
       container
@@ -20,7 +26,15 @@ export const Navbar = () => {
       alignItems="center" // centers grid items vertically
       // makes the grid responsive (10 columns width)
     >
-      <Grid2 sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
+      <Grid2
+        onClick={handleHomeButton}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          cursor: "pointer"
+        }}
+      >
         <img src="/public/vite.svg" alt="" width={50} />
         <Typography variant="h6" color="initial">
           Localन्यूज़

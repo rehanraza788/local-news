@@ -22,7 +22,7 @@ const CityList = [
   "Farrukhabad",
   "Fatehpur",
   "Firozabad",
-  "Gautam Buddha Nagar (Noida)",
+  "Noida",
   "Ghaziabad",
   "Ghazipur",
   "Gonda",

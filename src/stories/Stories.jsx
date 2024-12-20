@@ -35,7 +35,11 @@ export const Stories = () => {
             md={4}
             lg={3}
             key={index}
-            sx={{ display: "flex", justifyContent: "center" }}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "15px"
+            }}
           >
             <Box
               sx={{
