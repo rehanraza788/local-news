@@ -1,46 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
+import paper from "../News api/paper.json";
 import React from "react";
 
 export const Paper = () => {
-  const ePaper = [
-    {
-      image: "/public/e-newPaper/लखनऊ-20-Dec-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ-20-Dec-2024.pdf",
-      city: "लखनऊ",
-      date: "20 DEC 2024"
-    },
-    {
-      image: "/public/e-newPaper/लखनऊ-19-Dec-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ-19-Dec-2024.pdf",
-      city: "लखनऊ",
-      date: "19 DEC 2024"
-    },
-    {
-      image: "/public/e-newPaper/लखनऊ-18-Dec-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ---18-Dec-2024.pdf",
-      city: "लखनऊ",
-      date: "18 DEC 2024"
-    },
-    {
-      image: "/public/e-newPaper/लखनऊ-17-Dec-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ-17-Dec-2024.pdf",
-      city: "लखनऊ",
-      date: "17 DEC 2024"
-    },
-    {
-      image: "/public/e-newPaper/लखनऊ-16-December-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ-16-December-2024.pdf",
-      city: "लखनऊ",
-      date: "16 DEC 2024"
-    },
-    {
-      image: "/public/e-newPaper/लखनऊ-15-December-2024-page-1_page-0001.jpg",
-      pdf: "/public/e-newPaper/लखनऊ-15-December-2024.pdf",
-      city: "लखनऊ",
-      date: "15 DEC 2024"
-    }
-  ];
-
   return (
     <Box
       sx={{
@@ -51,7 +13,7 @@ export const Paper = () => {
         gap: "80px"
       }}
     >
-      {ePaper.map((ePaper, index) => {
+      {paper.map((ePaper, index) => {
         return (
           <>
             <Box sx={{ textAlign: "center" }} key={index}>
