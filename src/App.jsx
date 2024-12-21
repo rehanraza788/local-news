@@ -80,6 +80,7 @@ const App = () => {
         </>
       )
     },
+
     {
       path: "*",
       element: (
