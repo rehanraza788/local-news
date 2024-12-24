@@ -11,6 +11,10 @@ import { Video } from "./videos/Video";
 import Footer from "./footer/Footer";
 import { Paper } from "./e-paper/Paper";
 import { Cricket } from "./cricket/Cricket";
+import { News } from "./cricket/News";
+import { Schedule } from "./cricket/Schedule";
+import { Teams } from "./cricket/Teams";
+import { Ranking } from "./cricket/Ranking";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -78,7 +82,51 @@ const App = () => {
           <NavItems />
           <Cricket />
         </>
-      )
+      ),
+      children: [
+        {
+          path: "",
+          element: (
+            <>
+              <News />
+              <Footer />
+            </>
+          )
+        },
+        {
+          path: "news",
+          element: (
+            <>
+              <News />
+              <Footer />
+            </>
+          )
+        },
+        {
+          path: "schedule",
+          element: (
+            <>
+              <Schedule />
+            </>
+          )
+        },
+        {
+          path: "team",
+          element: (
+            <>
+              <Teams />
+            </>
+          )
+        },
+        {
+          path: "ranking",
+          element: (
+            <>
+              <Ranking />
+            </>
+          )
+        }
+      ]
     },
 
     {
