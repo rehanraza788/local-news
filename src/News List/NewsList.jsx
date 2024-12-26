@@ -15,6 +15,7 @@ import { AiFillLike } from "react-icons/ai";
 import NewsListData from "../News api/newsListData.json";
 export const NewsList = () => {
   const [open, setOpen] = useState(false);
+  const [click, setClick] = useState(null);
 
   const handleClick = () => {
     setOpen(true);
@@ -28,6 +29,10 @@ export const NewsList = () => {
       return;
     }
     setOpen(false);
+  };
+
+  const handleLikeClicked = () => {
+    setClick((prevCount) => (prevCount === null ? 1 : prevCount + 1));
   };
 
   return (
@@ -99,12 +104,22 @@ export const NewsList = () => {
                 flexWrap: "wrap"
               }}
             >
-              <IconButton aria-label="like" onClick={handleClick}>
-                <ThumbUpIcon sx={{ color: "#ffeb3b" }} />
-              </IconButton>
+              <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                <IconButton
+                  aria-label="like"
+                  onClick={() => {
+                    handleClick();
+                    handleLikeClicked();
+                  }}
+                >
+                  <ThumbUpIcon sx={{ color: "#ffeb3b" }} />
+                </IconButton>
+                <Typography variant="body2" color="initial">
+                  {click}
+                </Typography>
+              </Box>
 
               {/* liked alert button */}
-
               <Snackbar
                 open={open}
                 onClose={handleClose}
@@ -116,10 +131,9 @@ export const NewsList = () => {
                   variant="filled"
                   icon={<AiFillLike />} // Custom icon
                 >
-                  liked
+                  liked {click}
                 </Alert>
               </Snackbar>
-
               <IconButton aria-label="facebook">
                 <FacebookIcon sx={{ color: "#0866ff" }} />
               </IconButton>
