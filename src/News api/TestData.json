@@ -1,0 +1,72 @@
+[
+  {
+    "Rank": 1,
+    "Team": "Australia",
+    "Matches": 30,
+    "Points": 3715,
+    "Rating": 124
+  },
+  {
+    "Rank": 2,
+    "Team": "India",
+    "Matches": 33,
+    "Points": 3654,
+    "Rating": 111
+  },
+  {
+    "Rank": 3,
+    "Team": "South Africa",
+    "Matches": 27,
+    "Points": 2947,
+    "Rating": 109
+  },
+  {
+    "Rank": 4,
+    "Team": "England",
+    "Matches": 46,
+    "Points": 4815,
+    "Rating": 105
+  },
+  {
+    "Rank": 5,
+    "Team": "New Zealand",
+    "Matches": 33,
+    "Points": 3216,
+    "Rating": 97
+  },
+  {
+    "Rank": 6,
+    "Team": "Sri Lanka",
+    "Matches": 28,
+    "Points": 2436,
+    "Rating": 87
+  },
+  {
+    "Rank": 7,
+    "Team": "Pakistan",
+    "Matches": 24,
+    "Points": 2060,
+    "Rating": 86
+  },
+  {
+    "Rank": 8,
+    "Team": "West Indies",
+    "Matches": 29,
+    "Points": 2184,
+    "Rating": 75
+  },
+  {
+    "Rank": 9,
+    "Team": "Bangladesh",
+    "Matches": 29,
+    "Points": 1884,
+    "Rating": 65
+  },
+  {
+    "Rank": 10,
+    "Team": "Ireland",
+    "Matches": 5,
+    "Points": 131,
+    "Rating": 26
+  }
+]

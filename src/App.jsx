@@ -15,6 +15,9 @@ import { News } from "./cricket/News";
 import { Schedule } from "./cricket/Schedule";
 import { Teams } from "./cricket/Teams";
 import { Ranking } from "./cricket/Ranking";
+import { ODIPage } from "./cricket/ODIPage";
+import { TestPage } from "./cricket/TestPage";
+import { T20Page } from "./cricket/T20Page";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -107,6 +110,7 @@ const App = () => {
           element: (
             <>
               <Schedule />
+              <Footer />
             </>
           )
         },
@@ -115,6 +119,7 @@ const App = () => {
           element: (
             <>
               <Teams />
+              <Footer />
             </>
           )
         },
@@ -123,8 +128,44 @@ const App = () => {
           element: (
             <>
               <Ranking />
+              <Footer />
             </>
-          )
+          ),
+          children: [
+            {
+              path: "",
+              element: (
+                <>
+                  <ODIPage />
+                </>
+              )
+            },
+            {
+              path: "odi",
+              element: (
+                <>
+                  <ODIPage />
+                </>
+              )
+            },
+            {
+              path: "test",
+              element: (
+                <>
+                  <TestPage />
+                </>
+              )
+            },
+
+            {
+              path: "t20",
+              element: (
+                <>
+                  <T20Page />
+                </>
+              )
+            }
+          ]
         }
       ]
     },

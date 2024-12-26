@@ -17,10 +17,16 @@ export const News = () => {
   return (
     <>
       <Box>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "20px"
+          }}
+        >
           <Card sx={{ maxWidth: "500px" }}>
             <CardContent>
-              <Typography variant="body1" color="initial">
+              <Typography variant="body1" color="initial" fontWeight={"bold"}>
                 BCCI News
               </Typography>
             </CardContent>
