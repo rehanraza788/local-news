@@ -108,11 +108,10 @@ export const NavItems = () => {
     "Fresh",
     "Election",
     "Breaking",
-    "World",
+    "National",
     "Entertainment",
     "Cricket",
-    "Life Style",
-    "More ▶️"
+    "Life Style"
   ];
 
   return (
@@ -172,16 +171,14 @@ export const NavItems = () => {
                       ? "/election"
                       : heading === "Breaking"
                       ? "/"
-                      : heading === "World"
-                      ? "/world"
+                      : heading === "National"
+                      ? "/national"
                       : heading === "Entertainment"
                       ? "/entertainment"
                       : heading === "Cricket"
                       ? "/cricket"
                       : heading === "Life Style"
                       ? "/lifestyle"
-                      : heading === "More ▶️"
-                      ? "/more"
                       : "/"
                   }
                   style={{ textDecoration: "none", color: "inherit" }}

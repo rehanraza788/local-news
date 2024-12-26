@@ -18,10 +18,16 @@ import { Ranking } from "./cricket/Ranking";
 import { ODIPage } from "./cricket/ODIPage";
 import { TestPage } from "./cricket/TestPage";
 import { T20Page } from "./cricket/T20Page";
+import { National } from "./national/National";
+import { Entertainment } from "./entertainment/Entertainment";
+import { LifeStyle } from "./Life Style/LifeStyle";
+import { Election } from "./election/Election";
 
 const App = () => {
   const router = createBrowserRouter([
     {
+      // home
+
       path: "/",
       element: (
         <>
@@ -33,6 +39,7 @@ const App = () => {
         </>
       )
     },
+    // sign
     {
       path: "/sign",
       element: (
@@ -44,6 +51,7 @@ const App = () => {
         </>
       )
     },
+    // stories
     {
       path: "/stories",
       element: (
@@ -55,6 +63,7 @@ const App = () => {
         </>
       )
     },
+    // video
     {
       path: "/video",
       element: (
@@ -66,6 +75,7 @@ const App = () => {
         </>
       )
     },
+    // e--paper
     {
       path: "/paper",
       element: (
@@ -77,6 +87,7 @@ const App = () => {
         </>
       )
     },
+    // cricket
     {
       path: "/cricket",
       element: (
@@ -168,6 +179,52 @@ const App = () => {
           ]
         }
       ]
+    },
+    // national
+    {
+      path: "/national",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <National />
+          <Footer />
+        </>
+      )
+    },
+    // entertainment
+
+    {
+      path: "/entertainment",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Entertainment />
+        </>
+      )
+    },
+    // lifeStyle
+    {
+      path: "/lifestyle",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <LifeStyle />
+        </>
+      )
+    },
+    // Election
+    {
+      path: "/election",
+      element: (
+        <>
+          <Navbar />
+          <NavItems />
+          <Election />
+        </>
+      )
     },
 
     {
