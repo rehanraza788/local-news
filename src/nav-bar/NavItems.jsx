@@ -105,7 +105,6 @@ export const NavItems = () => {
 
   const mainHeadings = [
     "Home",
-    "Fresh",
     "Election",
     "Breaking",
     "National",
@@ -165,9 +164,7 @@ export const NavItems = () => {
               >
                 <NavLink
                   to={
-                    heading === "Fresh"
-                      ? "/fresh"
-                      : heading === "Election"
+                    heading === "Election"
                       ? "/election"
                       : heading === "Breaking"
                       ? "/"

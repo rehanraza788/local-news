@@ -201,6 +201,7 @@ const App = () => {
           <Navbar />
           <NavItems />
           <Entertainment />
+          <Footer />
         </>
       )
     },
@@ -223,6 +224,7 @@ const App = () => {
           <Navbar />
           <NavItems />
           <Election />
+          <Footer />
         </>
       )
     },
