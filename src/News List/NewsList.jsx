@@ -63,6 +63,9 @@ export const NewsList = () => {
               marginBottom: "20px"
             }}
           >
+            <Typography variant="h6" color="info" padding={"5px"}>
+              News Lists
+            </Typography>
             <CardMedia
               component="img"
               height="254"
@@ -120,7 +123,7 @@ export const NewsList = () => {
               </Box>
 
               {/* liked alert button */}
-              <Snackbar
+              {/* <Snackbar
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -133,7 +136,8 @@ export const NewsList = () => {
                 >
                   liked {click}
                 </Alert>
-              </Snackbar>
+              </Snackbar> */}
+
               <IconButton aria-label="facebook">
                 <FacebookIcon sx={{ color: "#0866ff" }} />
               </IconButton>
