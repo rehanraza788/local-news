@@ -213,6 +213,7 @@ const App = () => {
           <Navbar />
           <NavItems />
           <LifeStyle />
+          <Footer />
         </>
       )
     },

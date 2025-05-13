@@ -253,7 +253,22 @@ export const NavItems = () => {
       </Drawer>
       {/* Dialog */}
 
-      <Dialog open={openSearch} onClose={handleCloseSearch}>
+      <Dialog
+        open={openSearch}
+        onClose={handleCloseSearch}
+        sx={{
+          "& .MuiDialog-paper": {
+            position: "fixed",
+            top: "45%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "500px", // ✅ fixed width
+            height: "450px", // ✅ fixed height
+            padding: "10px",
+            overflow: "hidden" // optional: hide overflow
+          }
+        }}
+      >
         <DialogTitle
           sx={{ display: "flex", alignItems: "center", gap: "10px" }}
         >
@@ -269,7 +284,13 @@ export const NavItems = () => {
             <CloseIcon />
           </Button>
         </DialogTitle>
-        <DialogContent>
+
+        <DialogContent
+          sx={{
+            overflowY: "auto", // enable scrolling inside content if needed
+            maxHeight: "300px" // ensure content fits inside the fixed height
+          }}
+        >
           <Typography
             variant="h6"
             color="black"
@@ -279,15 +300,13 @@ export const NavItems = () => {
           </Typography>
           <List>
             {filteredCityList.length > 0 ? (
-              filteredCityList.map((city, index) => {
-                return (
-                  <ListItemText key={index}>
-                    <Button> {city} </Button>
-                  </ListItemText>
-                );
-              })
+              filteredCityList.map((city, index) => (
+                <ListItemText key={index}>
+                  <Button>{city}</Button>
+                </ListItemText>
+              ))
             ) : (
-              <p> No city Found </p>
+              <p>No city Found</p>
             )}
           </List>
         </DialogContent>
